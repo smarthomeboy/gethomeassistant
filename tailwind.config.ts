@@ -14,8 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sora: ['Sora', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,14 +50,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        amber: {
-          DEFAULT: "hsl(var(--amber))",
-          foreground: "hsl(var(--amber-foreground))",
-        },
-        navy: {
-          deep: "hsl(var(--navy-deep))",
-          mid: "hsl(var(--navy-mid))",
-          light: "hsl(var(--navy-light))",
+        ha: {
+          blue: "hsl(var(--ha-blue))",
+          "blue-dark": "hsl(var(--ha-blue-dark))",
+          "blue-light": "hsl(var(--ha-blue-light))",
+          gray: "hsl(var(--ha-gray))",
+          "gray-light": "hsl(var(--ha-gray-light))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

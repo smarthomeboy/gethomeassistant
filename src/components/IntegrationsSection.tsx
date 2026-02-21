@@ -1,17 +1,64 @@
 import HALogo from "./HALogo";
-import { Wifi, Camera, Radio, Lightbulb, Lock, Thermometer } from "lucide-react";
+
+// Clean SVG brand icons for each integration
+const SmartLifeIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-8 h-8">
+    <circle cx="24" cy="24" r="20" fill="#FF6B35" />
+    <path d="M24 12C17.4 12 12 17.4 12 24s5.4 12 12 12 12-5.4 12-12S30.6 12 24 12zm0 20c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z" fill="white" />
+    <circle cx="24" cy="24" r="4" fill="white" />
+  </svg>
+);
+
+const KNXIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-8 h-8">
+    <rect x="4" y="10" width="40" height="28" rx="4" fill="#00A651" />
+    <text x="24" y="29" textAnchor="middle" fontWeight="900" fontSize="16" fill="white" fontFamily="Arial, sans-serif">KNX</text>
+  </svg>
+);
+
+const ZigbeeIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-8 h-8">
+    <circle cx="24" cy="24" r="20" fill="#EB0443" />
+    <path d="M14 16h20l-16 16h20" stroke="white" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const CameraIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-8 h-8">
+    <rect x="4" y="12" width="40" height="24" rx="4" fill="#333" />
+    <circle cx="24" cy="24" r="8" fill="#555" stroke="#888" strokeWidth="2" />
+    <circle cx="24" cy="24" r="4" fill="#4FC3F7" />
+    <circle cx="36" cy="16" r="2" fill="#F44336" />
+  </svg>
+);
+
+const ZWaveIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-8 h-8">
+    <circle cx="24" cy="24" r="20" fill="#0089CF" />
+    <path d="M14 17h20l-16 14h20" stroke="white" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const MatterIcon = () => (
+  <svg viewBox="0 0 48 48" className="w-8 h-8">
+    <rect x="4" y="10" width="40" height="28" rx="14" fill="#000" />
+    <circle cx="18" cy="24" r="5" fill="none" stroke="white" strokeWidth="2.5" />
+    <circle cx="30" cy="24" r="5" fill="none" stroke="white" strokeWidth="2.5" />
+    <path d="M23 24h2" stroke="white" strokeWidth="2.5" />
+  </svg>
+);
 
 const integrations = [
-  { label: "Smart Life / Tuya", icon: Lightbulb, angle: 0, color: "hsl(39 100% 50%)" },
-  { label: "KNX", icon: Radio, angle: 60, color: "hsl(145 60% 45%)" },
-  { label: "Zigbee", icon: Wifi, angle: 120, color: "hsl(35 90% 55%)" },
-  { label: "Cameras", icon: Camera, angle: 180, color: "hsl(0 70% 55%)" },
-  { label: "Z-Wave", icon: Lock, angle: 240, color: "hsl(260 60% 55%)" },
-  { label: "Matter / Thread", icon: Thermometer, angle: 300, color: "hsl(210 70% 55%)" },
+  { label: "Smart Life / Tuya", Icon: SmartLifeIcon, angle: 0 },
+  { label: "KNX", Icon: KNXIcon, angle: 60 },
+  { label: "Zigbee", Icon: ZigbeeIcon, angle: 120 },
+  { label: "IP Cameras", Icon: CameraIcon, angle: 180 },
+  { label: "Z-Wave", Icon: ZWaveIcon, angle: 240 },
+  { label: "Matter / Thread", Icon: MatterIcon, angle: 300 },
 ];
 
 const IntegrationsSection = () => {
-  const radius = 200;
+  const radius = 190;
 
   return (
     <section id="services" className="py-24 bg-background overflow-hidden">
@@ -29,7 +76,7 @@ const IntegrationsSection = () => {
         </div>
 
         {/* Hub diagram */}
-        <div className="relative mx-auto mt-16 mb-12" style={{ width: "min(100%, 560px)", height: 560 }}>
+        <div className="relative mx-auto mt-16 mb-12 hidden md:block" style={{ width: 560, height: 560 }}>
           {/* Connection lines */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 560 560">
             {integrations.map((item) => {
@@ -44,7 +91,7 @@ const IntegrationsSection = () => {
                   stroke="hsl(193 100% 50%)"
                   strokeWidth="2"
                   strokeDasharray="6 4"
-                  opacity="0.35"
+                  opacity="0.4"
                 />
               );
             })}
@@ -52,10 +99,9 @@ const IntegrationsSection = () => {
 
           {/* Center hub */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-            <div className="w-32 h-32 rounded-full bg-primary flex items-center justify-center shadow-button relative">
-              <HALogo className="w-16 h-16" color="white" />
-              {/* Pulse ring */}
-              <div className="absolute inset-0 rounded-full border-2 border-primary/40 animate-ping" style={{ animationDuration: "3s" }} />
+            <div className="w-36 h-36 rounded-full bg-primary flex items-center justify-center shadow-button relative">
+              <HALogo className="w-20 h-20" color="white" />
+              <div className="absolute inset-0 rounded-full border-2 border-primary/30 animate-ping" style={{ animationDuration: "3s" }} />
             </div>
             <p className="text-center text-sm font-bold text-foreground mt-3">Home Assistant</p>
           </div>
@@ -65,7 +111,6 @@ const IntegrationsSection = () => {
             const rad = (item.angle - 90) * (Math.PI / 180);
             const x = 280 + radius * Math.cos(rad);
             const y = 280 + radius * Math.sin(rad);
-            const Icon = item.icon;
 
             return (
               <div
@@ -73,15 +118,32 @@ const IntegrationsSection = () => {
                 className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group"
                 style={{ left: `${(x / 560) * 100}%`, top: `${(y / 560) * 100}%` }}
               >
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-card border border-border bg-card group-hover:scale-110 transition-transform duration-300"
-                >
-                  <Icon className="w-7 h-7" style={{ color: item.color }} />
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-card border border-border bg-card group-hover:scale-110 transition-transform duration-300">
+                  <item.Icon />
                 </div>
                 <span className="text-xs font-semibold text-foreground whitespace-nowrap">{item.label}</span>
               </div>
             );
           })}
+        </div>
+
+        {/* Mobile: simple grid */}
+        <div className="md:hidden mt-12 mb-12">
+          <div className="flex justify-center mb-8">
+            <div className="w-28 h-28 rounded-full bg-primary flex items-center justify-center shadow-button">
+              <HALogo className="w-16 h-16" color="white" />
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-4">
+            {integrations.map((item) => (
+              <div key={item.label} className="flex flex-col items-center gap-2">
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center shadow-card border border-border bg-card">
+                  <item.Icon />
+                </div>
+                <span className="text-[11px] font-semibold text-foreground text-center">{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Comparison callout */}

@@ -1,12 +1,14 @@
 import HALogo from "./HALogo";
+import smartlifeIcon from "@/assets/smartlife-icon.png";
+import knxIcon from "@/assets/knx-icon.png";
 
 // Clean SVG brand icons for each integration
 const SmartLifeIcon = () => (
-  <img src="https://play-lh.googleusercontent.com/TQ5yl6bZFgmsP7_SIr0V2F2cVw9LbsC1Xf0JhQhLqEQBnM8F1I6FJnGEIhM0eFvH5g=w240-h480-rw" alt="Smart Life" className="w-8 h-8 rounded-lg" />
+  <img src={smartlifeIcon} alt="Smart Life" className="w-8 h-8 rounded-lg" />
 );
 
 const KNXIcon = () => (
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/KNX_logo.svg/200px-KNX_logo.svg.png" alt="KNX" className="w-8 h-8 object-contain" />
+  <img src={knxIcon} alt="KNX" className="w-8 h-8 object-contain" />
 );
 
 const ZigbeeIcon = () => (

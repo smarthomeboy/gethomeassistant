@@ -29,10 +29,10 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between py-4">
         <a href="#" className="flex items-center gap-2.5 group">
-          <HALogo className="w-9 h-9" color="hsl(193 100% 50%)" />
+          <HALogo className="w-9 h-9" color={scrolled ? "hsl(193 100% 50%)" : "white"} />
           <div className="flex flex-col leading-none">
-            <span className="font-bold text-foreground text-[15px] tracking-tight">Home Assistant</span>
-            <span className="text-[10px] text-primary font-semibold tracking-widest uppercase">as a Service</span>
+            <span className={`font-bold text-[15px] tracking-tight ${scrolled ? "text-foreground" : "text-white"}`}>Home Assistant</span>
+            <span className={`text-[10px] font-semibold tracking-widest uppercase ${scrolled ? "text-primary" : "text-white/70"}`}>as a Service</span>
           </div>
         </a>
 
@@ -41,7 +41,9 @@ const Navbar = () => {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm text-foreground/70 hover:text-primary transition-colors duration-200 font-medium"
+              className={`text-sm transition-colors duration-200 font-medium ${
+                scrolled ? "text-foreground/70 hover:text-primary" : "text-white/80 hover:text-white"
+              }`}
             >
               {link.label}
             </a>
@@ -58,7 +60,7 @@ const Navbar = () => {
         </div>
 
         <button
-          className="md:hidden text-foreground"
+          className={`md:hidden ${scrolled ? "text-foreground" : "text-white"}`}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

@@ -1,6 +1,6 @@
 import HALogo from "./HALogo";
 import smartlifeIcon from "@/assets/smartlife-icon.png";
-import knxIcon from "@/assets/knx-icon.png";
+import knxIcon from "@/assets/knx-icon.svg";
 
 // Clean SVG brand icons for each integration
 const SmartLifeIcon = () => (

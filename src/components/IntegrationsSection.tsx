@@ -2,18 +2,11 @@ import HALogo from "./HALogo";
 
 // Clean SVG brand icons for each integration
 const SmartLifeIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-8 h-8">
-    <circle cx="24" cy="24" r="20" fill="#FF6B35" />
-    <path d="M24 12C17.4 12 12 17.4 12 24s5.4 12 12 12 12-5.4 12-12S30.6 12 24 12zm0 20c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z" fill="white" />
-    <circle cx="24" cy="24" r="4" fill="white" />
-  </svg>
+  <img src="https://play-lh.googleusercontent.com/TQ5yl6bZFgmsP7_SIr0V2F2cVw9LbsC1Xf0JhQhLqEQBnM8F1I6FJnGEIhM0eFvH5g=w240-h480-rw" alt="Smart Life" className="w-8 h-8 rounded-lg" />
 );
 
 const KNXIcon = () => (
-  <svg viewBox="0 0 48 48" className="w-8 h-8">
-    <rect x="4" y="10" width="40" height="28" rx="4" fill="#00A651" />
-    <text x="24" y="29" textAnchor="middle" fontWeight="900" fontSize="16" fill="white" fontFamily="Arial, sans-serif">KNX</text>
-  </svg>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/KNX_logo.svg/200px-KNX_logo.svg.png" alt="KNX" className="w-8 h-8 object-contain" />
 );
 
 const ZigbeeIcon = () => (

@@ -29,9 +29,9 @@ const CTASection = () => {
 
             <div className="flex flex-col gap-5">
               {[
-                { icon: Phone, label: "+1 (555) 123-4567" },
-                { icon: Mail, label: "hello@haas.home" },
-                { icon: MapPin, label: "Serving nationwide, USA" },
+                { icon: Phone, label: "+91-7428222333" },
+                { icon: Mail, label: "pranav@gethomeassistant.com" },
+                { icon: MapPin, label: "Dehradun & Gurgaon, India" },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-xl bg-primary-foreground/10 flex items-center justify-center flex-shrink-0">
